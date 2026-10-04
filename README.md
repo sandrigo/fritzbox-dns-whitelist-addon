@@ -1,67 +1,67 @@
 # FRITZ!Box DNS-Whitelist
 
-Firefox-/Zen-Erweiterung: Setzt die Domain der aktuellen Seite mit einem Klick auf die
-**DNS-Filter-Ausnahmen („Erlaubt“)** deiner FRITZ!Box (FRITZ!OS mit DNS-Filterlisten, getestet mit
-FRITZ!Box 7690 / FRITZ!OS 8.50).
+🇩🇪 [Deutsche Version](README.de.md)
 
-- Ein Klick: Domain der aktuellen Seite wird auf der Box erlaubt (kein Tab, keine Weboberfläche nötig)
-- Liste aller Domain-Ausnahmen der Box im Popup, mit Hinweis, wann sie über das Plugin hinzugefügt wurden
-- Einträge direkt aus dem Popup wieder entfernen
-- Hell/Dunkel passend zum System
+Firefox / Zen browser extension that adds the domain of the current page to the **DNS filter exceptions ("Allowed")** of your
+FRITZ!Box with a single click (FRITZ!OS with DNS filter lists; tested with a FRITZ!Box 7690 / FRITZ!OS 8.50).
 
-## Hintergrund
+- One click: the domain of the current page is allowed on the box (no extra tab, no web UI needed)
+- Popup lists all domain exceptions on the box, including when they were added through the add-on
+- Remove entries straight from the popup
+- Light/dark theme follows your system
 
-Seit FRITZ!OS 8.50 hat die FRITZ!Box DNS-Filterlisten. Blockiert ein Filter dabei eine Seite, die man eigentlich braucht,
-muss man bisher jedes Mal in die Weboberfläche der Box (Heimnetz → Netzwerk → Netzwerkeinstellungen → DNS-Filter →
-„Eigene Domain hinzufügen“) und die Domain von Hand auf „Erlaubt“ setzen. Dieses Add-on erspart das: ein Klick im Browser genügt.
+## Background
+
+Since FRITZ!OS 8.50 the FRITZ!Box has DNS filter lists. When a filter blocks a site you actually need, you previously had to open
+the box's web interface (Home Network → Network → Network Settings → DNS Filter → "Add custom domain") and set the domain to
+"Allowed" by hand. This add-on skips that: one click in your browser is enough.
 
 ## Installation
 
-**Temporär (zum Ausprobieren):** `about:debugging#/runtime/this-firefox` → „Temporäres Add-on laden“ → `manifest.json` wählen.
-Bleibt nur bis zum Neustart des Browsers.
+**Temporary (to try it out):** `about:debugging#/runtime/this-firefox` → "Load Temporary Add-on" → select `manifest.json`.
+Stays installed only until the browser is restarted.
 
-**Dauerhaft:** Erweiterung signieren lassen (z. B. `npx web-ext sign --channel=unlisted`, benötigt AMO-API-Schlüssel)
-und die entstandene `.xpi` installieren – oder in Zen/Firefox Developer Edition / Nightly mit
-`xpinstall.signatures.required = false` die ungesignierte Version nutzen.
+**Permanent:** have the extension signed (e.g. `npx web-ext sign --channel=unlisted`, requires AMO API keys) and install the
+resulting `.xpi` – or use the unsigned version in Firefox Developer Edition / Nightly with `xpinstall.signatures.required = false`.
 
-Zum Bauen eines Zip-Pakets: `./build.sh`
+To build a zip package: `./build.sh`
 
-## Einrichtung
+## Setup
 
-Toolbar-Icon → „Einstellungen“ (oder `about:addons`):
+Toolbar icon → "Einstellungen" / settings (or `about:addons`):
 
-| Feld | Bedeutung |
+| Field | Meaning |
 |---|---|
-| Adresse | z. B. `http://fritz.box` (oder `https://fritz.box`) |
-| Benutzername | leer = zuletzt benutzter Box-Benutzer |
-| Passwort | Passwort des Box-Benutzers |
-| Notiz | wird bei neuen Einträgen als Kommentar gespeichert |
+| Address | e.g. `http://fritz.box` (or `https://fritz.box`) |
+| Username | empty = last used box user |
+| Password | password of the box user |
+| Note | stored as comment on new entries |
 
-Empfehlung: einen **eigenen Box-Benutzer** anlegen, der nur Zugriff auf die nötigen Einstellungen hat.
+Recommendation: create a **dedicated box user** with access to only the settings it needs.
 
-## Wie es funktioniert
+## How it works
 
-Anmeldung über `login_sid.lua` (PBKDF2-Challenge-Response von AVM), danach Zugriff auf die REST-API der Box:
+Sign-in via `login_sid.lua` (AVM's PBKDF2 challenge-response), then access to the box's REST API:
 
 ```
 GET/POST/DELETE  /api/v0/beta/dnsfilter/domains
 Authorization: AVM-SID <sid>
 ```
 
-Diese Schnittstelle ist von AVM als **beta** gekennzeichnet und kann sich mit FRITZ!OS-Updates ändern.
+AVM labels this interface **beta**; it may change with FRITZ!OS updates.
 
-## Datenschutz & Sicherheit
+## Privacy & security
 
-- Zugangsdaten liegen **unverschlüsselt** im lokalen Erweiterungsspeicher des Browsers.
-- Die Erweiterung kommuniziert ausschließlich mit der konfigurierten FRITZ!Box. Keine Telemetrie, keine externen Server.
-- Benötigte Rechte: `storage`, `activeTab` (Domain der aktuellen Seite) und Zugriff auf `fritz.box`.
-- Inoffizielles Projekt, nicht mit AVM verbunden. FRITZ!Box ist eine Marke der AVM GmbH.
+- Credentials are stored **unencrypted** in the browser's local extension storage.
+- The extension talks only to the configured FRITZ!Box. No telemetry, no external servers.
+- Permissions: `storage`, `activeTab` (domain of the current page) and access to `fritz.box`.
+- Unofficial project, not affiliated with AVM. FRITZ!Box is a trademark of AVM GmbH.
 
-## Hinweis zu den Zeitstempeln
+## About the timestamps
 
-Die Box speichert kein Hinzufügedatum. Das Plugin merkt es sich lokal. Einträge, die anderweitig angelegt wurden,
-erscheinen als „nicht über das Plugin hinzugefügt“.
+The box does not store an "added on" date. The add-on remembers it locally. Entries created in another way show up as
+"not added via the add-on".
 
-## Lizenz
+## License
 
 MIT
