@@ -64,6 +64,10 @@ Diese Schnittstelle ist von AVM als **beta** gekennzeichnet und kann sich mit FR
 Die Box speichert kein Hinzufügedatum. Das Plugin merkt es sich lokal. Einträge, die anderweitig angelegt wurden,
 erscheinen als „nicht über das Plugin hinzugefügt“.
 
+## Datenschutz
+
+Siehe [PRIVACY.md](PRIVACY.md).
+
 ## Lizenz
 
 MIT

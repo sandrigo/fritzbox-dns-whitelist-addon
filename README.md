@@ -62,6 +62,10 @@ AVM labels this interface **beta**; it may change with FRITZ!OS updates.
 The box does not store an "added on" date. The add-on remembers it locally. Entries created in another way show up as
 "not added via the add-on".
 
+## Privacy
+
+See [PRIVACY.md](PRIVACY.md).
+
 ## License
 
 MIT
