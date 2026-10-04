@@ -9,6 +9,12 @@ FRITZ!Box 7690 / FRITZ!OS 8.50).
 - Einträge direkt aus dem Popup wieder entfernen
 - Hell/Dunkel passend zum System
 
+## Hintergrund
+
+Seit FRITZ!OS 8.50 hat die FRITZ!Box DNS-Filterlisten. Blockiert ein Filter dabei eine Seite, die man eigentlich braucht,
+muss man bisher jedes Mal in die Weboberfläche der Box (Heimnetz → Netzwerk → Netzwerkeinstellungen → DNS-Filter →
+„Eigene Domain hinzufügen“) und die Domain von Hand auf „Erlaubt“ setzen. Dieses Add-on erspart das: ein Klick im Browser genügt.
+
 ## Installation
 
 **Temporär (zum Ausprobieren):** `about:debugging#/runtime/this-firefox` → „Temporäres Add-on laden“ → `manifest.json` wählen.
