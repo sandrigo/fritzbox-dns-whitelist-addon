@@ -1,0 +1,18 @@
+<!doctype html>
+<meta charset="utf-8">
+<link rel="stylesheet" href="style.css">
+<style>body { width: 370px; }</style>
+<div class="wrap">
+  <header>
+    <img src="icon.svg" alt="">
+    <h1>FRITZ!Box DNS-Whitelist</h1>
+    <a href="#" id="opts" title="Einstellungen">⚙ Einstellungen</a>
+  </header>
+  <label for="domain">Domain erlauben</label>
+  <input id="domain" spellcheck="false" autocomplete="off">
+  <button class="primary" id="go">Auf FRITZ!Box erlauben</button>
+  <div id="status"></div>
+  <h2>Auf der Box eingetragen</h2>
+  <ul id="list"><li class="msg">lädt …</li></ul>
+</div>
+<script src="popup.js"></script>

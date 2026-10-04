@@ -1,0 +1,15 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>FRITZ!Box DNS-Whitelist – Einstellungen</title>
+<link rel="stylesheet" href="style.css">
+<div class="page">
+  <h1>FRITZ!Box-Zugang</h1>
+  <p class="sub">Wird für die Anmeldung an der Box benötigt.</p>
+  <div class="field"><label for="url">Adresse</label><input id="url" placeholder="http://fritz.box"></div>
+  <div class="field"><label for="user">Benutzername (leer = zuletzt benutzter Box-Benutzer)</label><input id="user" autocomplete="off"></div>
+  <div class="field"><label for="pass">Passwort</label><input id="pass" type="password" autocomplete="off"></div>
+  <div class="field"><label for="note">Notiz für neue Einträge</label><input id="note"></div>
+  <div class="row"><button class="primary" id="save">Speichern</button><span id="msg" class="ok"></span></div>
+  <p class="hint">Die Zugangsdaten liegen unverschlüsselt im lokalen Speicher des Browsers. Am besten einen eigenen FRITZ!Box-Benutzer mit nur den nötigen Rechten verwenden.</p>
+</div>
+<script src="options.js"></script>

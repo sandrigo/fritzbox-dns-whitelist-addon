@@ -1,0 +1,39 @@
+{
+  "manifest_version": 2,
+  "name": "FRITZ!Box DNS-Whitelist",
+  "version": "1.0.0",
+  "description": "Setzt die aktuelle Domain mit einem Klick auf die DNS-Filter-Ausnahmen (Erlaubt) der FRITZ!Box.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "http://fritz.box/*",
+    "https://fritz.box/*"
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": false
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "fritzbox-dns-whitelist@sandrigo",
+      "strict_min_version": "115.0"
+    }
+  },
+  "icons": {
+    "48": "icon.svg",
+    "96": "icon.svg"
+  },
+  "browser_action": {
+    "default_title": "Domain bei FRITZ!Box erlauben",
+    "default_popup": "popup.html",
+    "default_icon": "icon.svg"
+  },
+  "author": "sandrigo",
+  "homepage_url": "https://github.com/sandrigo/fritzbox-dns-whitelist"
+}
