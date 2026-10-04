@@ -55,3 +55,9 @@ li button:disabled { opacity: .5; }
 .hint { color: var(--muted); font-size: 12px; margin-top: 20px; }
 
 .hint a { color: var(--accent); }
+
+.h2row { display: flex; align-items: center; justify-content: space-between; margin-top: 16px; }
+.h2row h2 { margin: 16px 0 6px; }
+#refresh { border: 1px solid var(--line); background: transparent; color: var(--muted); border-radius: 6px; padding: 3px 9px; font: inherit; font-size: 12px; cursor: pointer; }
+#refresh:hover:not(:disabled) { color: var(--text); border-color: var(--muted); }
+#refresh.spin { opacity: .5; }

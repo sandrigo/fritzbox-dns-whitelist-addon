@@ -19,7 +19,9 @@ $("go").onclick = async () => {
 const fmt = (t) => new Date(t).toLocaleString("de-DE", { dateStyle: "short", timeStyle: "short" });
 async function loadList() {
   const ul = $("list");
+  $("refresh").classList.add("spin"); $("refresh").disabled = true;
   const r = await browser.runtime.sendMessage({ type: "list" });
+  $("refresh").classList.remove("spin"); $("refresh").disabled = false;
   ul.textContent = "";
   if (!r?.ok) { const li = document.createElement("li"); li.className = "msg err"; li.textContent = "✖ " + (r?.error || "Fehler"); ul.append(li); return; }
   if (!r.list.length) { const li = document.createElement("li"); li.className = "msg"; li.textContent = "Noch keine Einträge."; ul.append(li); return; }
@@ -41,3 +43,4 @@ async function loadList() {
   }
 }
 loadList();
+$("refresh").onclick = loadList;

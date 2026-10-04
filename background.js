@@ -35,7 +35,7 @@ async function apiSessionInner(cfg) {
   const base = cfg.url.replace(/\/+$/, "");
   const url = base + "/api/v0/beta/dnsfilter/domains";
   const call = (sid, path = "", init = {}) =>
-    fetch(url + path, { ...init, headers: { Authorization: "AVM-SID " + sid, "Content-Type": "application/json" } });
+    fetch(url + path, { cache: "no-store", ...init, headers: { Authorization: "AVM-SID " + sid, "Content-Type": "application/json" } });
   const store = browser.storage.session ?? browser.storage.local;
   let { sid } = await store.get("sid");
   let list = sid ? await call(sid) : null;
